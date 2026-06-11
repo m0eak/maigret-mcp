@@ -2,7 +2,12 @@ FROM python:3.12-slim
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
-    PIP_NO_CACHE_DIR=1
+    PIP_NO_CACHE_DIR=1 \
+    MCP_HOST=0.0.0.0 \
+    MCP_PORT=8000 \
+    MCP_PATH=/mcp \
+    MCP_STATELESS_HTTP=true \
+    MCP_JSON_RESPONSE=true
 
 WORKDIR /app
 
@@ -19,5 +24,7 @@ RUN pip install --upgrade pip \
 RUN mkdir -p /app/reports
 
 VOLUME ["/app/reports"]
+
+EXPOSE 8000
 
 ENTRYPOINT ["python", "-m", "maigret_mcp.server"]

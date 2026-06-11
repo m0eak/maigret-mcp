@@ -1,17 +1,32 @@
-"""MCP server exposing safe Maigret search tools."""
+"""MCP server exposing safe Maigret search tools over Streamable HTTP."""
 
 from __future__ import annotations
 
-from pathlib import Path
+import os
 from typing import Literal
 
 from mcp.server.fastmcp import FastMCP
 
 from .runner import default_reports_dir, list_report_files, run_maigret, run_stats
 
-mcp = FastMCP("maigret-mcp")
-
 ReportFormat = Literal["txt", "html", "pdf", "csv", "json"]
+
+
+def env_bool(name: str, default: bool) -> bool:
+    value = os.environ.get(name)
+    if value is None:
+        return default
+    return value.strip().lower() in {"1", "true", "yes", "on"}
+
+
+mcp = FastMCP(
+    "maigret-mcp",
+    host=os.environ.get("MCP_HOST", "0.0.0.0"),
+    port=int(os.environ.get("MCP_PORT", "8000")),
+    streamable_http_path=os.environ.get("MCP_PATH", "/mcp"),
+    stateless_http=env_bool("MCP_STATELESS_HTTP", True),
+    json_response=env_bool("MCP_JSON_RESPONSE", True),
+)
 
 
 @mcp.tool()
@@ -120,7 +135,7 @@ def list_reports() -> dict:
 
 
 def main() -> None:
-    mcp.run()
+    mcp.run(transport="streamable-http")
 
 
 if __name__ == "__main__":

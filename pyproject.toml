@@ -13,7 +13,7 @@ authors = [
   { name = "m0eak" }
 ]
 dependencies = [
-  "mcp>=1.2.0",
+  "mcp>=1.13.0",
   "maigret>=0.6.1",
   "pydantic>=2.8.0"
 ]

@@ -1,10 +1,11 @@
 # maigret-mcp
 
-Dockerized MCP server wrapping [Maigret](https://github.com/soxoj/maigret) for username OSINT searches.
+Dockerized **Streamable HTTP MCP server** wrapping [Maigret](https://github.com/soxoj/maigret) for username OSINT searches.
 
 ## Features
 
 - Run Maigret in a containerized environment
+- Expose MCP over Streamable HTTP at `/mcp`
 - Search one or multiple usernames
 - Generate TXT / HTML / PDF / CSV / JSON reports
 - Return report file paths and parsed TXT summary
@@ -28,29 +29,54 @@ Use this tool only for public information discovery and follow applicable laws a
 ## Quick start
 
 ```bash
-docker build -t maigret-mcp .
-docker run --rm -i -v "%cd%/reports:/app/reports" maigret-mcp
+docker run --rm \
+  -p 8000:8000 \
+  -v "${PWD}/reports:/app/reports" \
+  m0eak/maigret-mcp:latest
+```
+
+MCP endpoint:
+
+```text
+http://localhost:8000/mcp
+```
+
+## Docker Compose
+
+```bash
+docker compose up -d
+```
+
+For local development build:
+
+```bash
+docker compose --profile build up --build
 ```
 
 ## MCP client config example
+
+Use URL-based Streamable HTTP configuration:
 
 ```json
 {
   "mcpServers": {
     "maigret-mcp": {
-      "command": "docker",
-      "args": [
-        "run",
-        "--rm",
-        "-i",
-        "-v",
-        "C:/Users/m0eak/Documents/GitHub/maigret-mcp/reports:/app/reports",
-        "maigret-mcp"
-      ]
+      "url": "http://localhost:8000/mcp"
     }
   }
 }
 ```
+
+## Runtime environment
+
+| Variable | Default | Description |
+| --- | --- | --- |
+| `MCP_HOST` | `0.0.0.0` | Bind address inside the container |
+| `MCP_PORT` | `8000` | Streamable HTTP port |
+| `MCP_PATH` | `/mcp` | MCP endpoint path |
+| `MCP_STATELESS_HTTP` | `true` | Run Streamable HTTP in stateless mode |
+| `MCP_JSON_RESPONSE` | `true` | Prefer JSON responses instead of SSE event streams |
+| `MAIGRET_MCP_REPORTS_DIR` | `/app/reports` | Report output directory |
 
 ## Tools
 

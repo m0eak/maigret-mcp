@@ -9,7 +9,7 @@
   <Privileged>false</Privileged>
   <Support>https://github.com/m0eak/maigret-mcp/issues</Support>
   <Project>https://github.com/m0eak/maigret-mcp</Project>
-  <Overview>Dockerized MCP server wrapping Maigret for public username OSINT searches. This container exposes an MCP stdio server and is intended to be launched by an MCP client, not accessed through a WebUI.</Overview>
+  <Overview>Dockerized Streamable HTTP MCP server wrapping Maigret for public username OSINT searches. Endpoint: http://[IP]:[PORT:8000]/mcp. This is an MCP endpoint, not a normal WebUI.</Overview>
   <Category>Tools: Network:Other Productivity: Tools:System</Category>
   <WebUI />
   <TemplateURL>https://raw.githubusercontent.com/m0eak/maigret-mcp/master/templates/unraid/maigret-mcp.xml</TemplateURL>
@@ -21,6 +21,12 @@
   <DonateText />
   <DonateLink />
   <Requires />
+  <Config Name="MCP Port" Target="8000" Default="8000" Mode="tcp" Description="Host port for the Streamable HTTP MCP endpoint." Type="Port" Display="always" Required="true" Mask="false">8000</Config>
   <Config Name="Reports Directory" Target="/app/reports" Default="/mnt/user/appdata/maigret-mcp/reports" Mode="rw" Description="Directory used to store Maigret generated reports." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/maigret-mcp/reports</Config>
+  <Config Name="MCP Host" Target="MCP_HOST" Default="0.0.0.0" Mode="" Description="Bind address inside the container." Type="Variable" Display="advanced" Required="true" Mask="false">0.0.0.0</Config>
+  <Config Name="MCP Port Environment" Target="MCP_PORT" Default="8000" Mode="" Description="Internal Streamable HTTP MCP port." Type="Variable" Display="advanced" Required="true" Mask="false">8000</Config>
+  <Config Name="MCP Path" Target="MCP_PATH" Default="/mcp" Mode="" Description="Streamable HTTP MCP path." Type="Variable" Display="advanced" Required="true" Mask="false">/mcp</Config>
+  <Config Name="MCP Stateless HTTP" Target="MCP_STATELESS_HTTP" Default="true" Mode="" Description="Run Streamable HTTP in stateless mode." Type="Variable" Display="advanced" Required="true" Mask="false">true</Config>
+  <Config Name="MCP JSON Response" Target="MCP_JSON_RESPONSE" Default="true" Mode="" Description="Use JSON responses instead of SSE event streams for Streamable HTTP." Type="Variable" Display="advanced" Required="true" Mask="false">true</Config>
   <Config Name="Reports Environment" Target="MAIGRET_MCP_REPORTS_DIR" Default="/app/reports" Mode="" Description="Internal reports directory used by the MCP server." Type="Variable" Display="advanced" Required="true" Mask="false">/app/reports</Config>
 </Container>

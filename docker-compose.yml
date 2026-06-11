@@ -2,10 +2,15 @@ services:
   maigret-mcp:
     image: m0eak/maigret-mcp:latest
     container_name: maigret-mcp
-    stdin_open: true
-    tty: false
     restart: unless-stopped
+    ports:
+      - "8000:8000"
     environment:
+      MCP_HOST: 0.0.0.0
+      MCP_PORT: 8000
+      MCP_PATH: /mcp
+      MCP_STATELESS_HTTP: "true"
+      MCP_JSON_RESPONSE: "true"
       MAIGRET_MCP_REPORTS_DIR: /app/reports
     volumes:
       - ./reports:/app/reports
@@ -20,9 +25,14 @@ services:
       dockerfile: Dockerfile
     image: maigret-mcp:local
     container_name: maigret-mcp-build
-    stdin_open: true
-    tty: false
+    ports:
+      - "8000:8000"
     environment:
+      MCP_HOST: 0.0.0.0
+      MCP_PORT: 8000
+      MCP_PATH: /mcp
+      MCP_STATELESS_HTTP: "true"
+      MCP_JSON_RESPONSE: "true"
       MAIGRET_MCP_REPORTS_DIR: /app/reports
     volumes:
       - ./reports:/app/reports

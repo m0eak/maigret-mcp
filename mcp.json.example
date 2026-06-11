@@ -1,17 +1,7 @@
 {
   "mcpServers": {
     "maigret-mcp": {
-      "command": "docker",
-      "args": [
-        "run",
-        "--rm",
-        "-i",
-        "-v",
-        "C:/Users/m0eak/Documents/GitHub/maigret-mcp/reports:/app/reports",
-        "-e",
-        "MAIGRET_MCP_REPORTS_DIR=/app/reports",
-        "maigret-mcp:latest"
-      ]
+      "url": "http://localhost:8000/mcp"
     }
   }
 }
