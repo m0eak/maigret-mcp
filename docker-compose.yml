@@ -1,10 +1,28 @@
 services:
   maigret-mcp:
-    build: .
-    image: maigret-mcp:latest
+    image: m0eak/maigret-mcp:latest
+    container_name: maigret-mcp
     stdin_open: true
     tty: false
-    volumes:
-      - ./reports:/app/reports
+    restart: unless-stopped
     environment:
       MAIGRET_MCP_REPORTS_DIR: /app/reports
+    volumes:
+      - ./reports:/app/reports
+
+  # Optional local build profile for development:
+  # docker compose --profile build up
+  maigret-mcp-build:
+    profiles:
+      - build
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: maigret-mcp:local
+    container_name: maigret-mcp-build
+    stdin_open: true
+    tty: false
+    environment:
+      MAIGRET_MCP_REPORTS_DIR: /app/reports
+    volumes:
+      - ./reports:/app/reports

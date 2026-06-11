@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Container version="2">
+  <Name>maigret-mcp</Name>
+  <Repository>m0eak/maigret-mcp:latest</Repository>
+  <Registry>https://hub.docker.com/r/m0eak/maigret-mcp</Registry>
+  <Network>bridge</Network>
+  <MyIP />
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/m0eak/maigret-mcp/issues</Support>
+  <Project>https://github.com/m0eak/maigret-mcp</Project>
+  <Overview>Dockerized MCP server wrapping Maigret for public username OSINT searches. This container exposes an MCP stdio server and is intended to be launched by an MCP client, not accessed through a WebUI.</Overview>
+  <Category>Tools: Network:Other Productivity: Tools:System</Category>
+  <WebUI />
+  <TemplateURL>https://raw.githubusercontent.com/m0eak/maigret-mcp/master/templates/unraid/maigret-mcp.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/m0eak/maigret-mcp/master/assets/maigret-mcp.png</Icon>
+  <ExtraParams />
+  <PostArgs />
+  <CPUset />
+  <DateInstalled />
+  <DonateText />
+  <DonateLink />
+  <Requires />
+  <Config Name="Reports Directory" Target="/app/reports" Default="/mnt/user/appdata/maigret-mcp/reports" Mode="rw" Description="Directory used to store Maigret generated reports." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/maigret-mcp/reports</Config>
+  <Config Name="Reports Environment" Target="MAIGRET_MCP_REPORTS_DIR" Default="/app/reports" Mode="" Description="Internal reports directory used by the MCP server." Type="Variable" Display="advanced" Required="true" Mask="false">/app/reports</Config>
+</Container>
