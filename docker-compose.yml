@@ -1,0 +1,10 @@
+services:
+  maigret-mcp:
+    build: .
+    image: maigret-mcp:latest
+    stdin_open: true
+    tty: false
+    volumes:
+      - ./reports:/app/reports
+    environment:
+      MAIGRET_MCP_REPORTS_DIR: /app/reports
