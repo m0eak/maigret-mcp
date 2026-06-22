@@ -17,9 +17,11 @@ RUN apt-get update \
 
 COPY pyproject.toml README.md ./
 COPY src ./src
+COPY vendor ./vendor
 
 RUN pip install --upgrade pip \
-    && pip install .
+    && pip install . \
+    && python -c "import shutil; from pathlib import Path; import maigret; src=Path('/app/vendor/maigret/resources'); dst=Path(maigret.__file__).resolve().parent/'resources'; [shutil.copy2(src/name, dst/name) for name in ('data.json', 'db_meta.json') if (src/name).exists()]"
 
 RUN mkdir -p /app/reports
 

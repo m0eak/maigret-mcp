@@ -41,6 +41,8 @@ jobs:
         run: |
           if [[ "${GITHUB_EVENT_NAME}" == "push" && ("${GITHUB_REF}" == "refs/heads/main" || "${GITHUB_REF}" == "refs/heads/master" || "${GITHUB_REF}" == refs/tags/v*) ]]; then
             echo "push_image=true" >> "$GITHUB_OUTPUT"
+          elif [[ "${GITHUB_EVENT_NAME}" == "workflow_dispatch" && ("${GITHUB_REF}" == "refs/heads/main" || "${GITHUB_REF}" == "refs/heads/master" || "${GITHUB_REF}" == refs/tags/v*) ]]; then
+            echo "push_image=true" >> "$GITHUB_OUTPUT"
           else
             echo "push_image=false" >> "$GITHUB_OUTPUT"
           fi
@@ -62,6 +64,20 @@ jobs:
             exit 1
           fi
 
+      - name: Read vendored Maigret version
+        id: maigret_version
+        shell: bash
+        run: |
+          if [ -s vendor/maigret/VERSION ]; then
+            version="$(tr -d '[:space:]' < vendor/maigret/VERSION)"
+            minor="${version%.*}"
+            echo "version=${version}" >> "$GITHUB_OUTPUT"
+            echo "minor=${minor}" >> "$GITHUB_OUTPUT"
+          else
+            echo "version=" >> "$GITHUB_OUTPUT"
+            echo "minor=" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Log in to DockerHub
         if: steps.push_policy.outputs.push_image == 'true'
         uses: docker/login-action@v3
@@ -80,6 +96,9 @@ jobs:
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
             type=sha,prefix=sha-
+            type=raw,value=${{ steps.maigret_version.outputs.version }},enable=${{ steps.maigret_version.outputs.version != '' && steps.push_policy.outputs.push_image == 'true' }}
+            type=raw,value=${{ steps.maigret_version.outputs.minor }},enable=${{ steps.maigret_version.outputs.minor != '' && steps.push_policy.outputs.push_image == 'true' }}
+            type=raw,value=v${{ steps.maigret_version.outputs.version }},enable=${{ steps.maigret_version.outputs.version != '' && steps.push_policy.outputs.push_image == 'true' }}
             type=raw,value=latest,enable=${{ github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master' }}
 
       - name: Build Docker image

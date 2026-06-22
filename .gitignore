@@ -29,6 +29,7 @@ reports/*
 .ruff_cache/
 .coverage
 htmlcov/
+.serena/
 
 .DS_Store
 Thumbs.db

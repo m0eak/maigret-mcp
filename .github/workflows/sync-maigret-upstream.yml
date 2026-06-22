@@ -1,0 +1,124 @@
+name: Sync Maigret Upstream
+
+on:
+  schedule:
+    - cron: "17 20 * * *"
+  workflow_dispatch:
+
+permissions:
+  actions: write
+  contents: write
+
+concurrency:
+  group: sync-maigret-upstream
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    name: Sync Maigret data
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Fetch upstream Maigret data
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          tmp_dir="$(mktemp -d)"
+          trap 'rm -rf "$tmp_dir"' EXIT
+
+          git clone --depth 1 https://github.com/soxoj/maigret.git "$tmp_dir/maigret"
+
+          mkdir -p vendor/maigret/resources
+          cp "$tmp_dir/maigret/maigret/resources/data.json" vendor/maigret/resources/data.json
+          cp "$tmp_dir/maigret/maigret/resources/db_meta.json" vendor/maigret/resources/db_meta.json
+
+          export UPSTREAM_MAIGRET_DIR="$tmp_dir/maigret"
+          python - <<'PY'
+          from pathlib import Path
+          import ast
+          import os
+
+          version_file = Path("vendor/maigret/VERSION")
+          upstream_dir = Path(os.environ["UPSTREAM_MAIGRET_DIR"])
+          source = (upstream_dir / "maigret" / "__version__.py").read_text(encoding="utf-8")
+          tree = ast.parse(source)
+          for node in tree.body:
+              if (
+                  isinstance(node, ast.Assign)
+                  and any(isinstance(target, ast.Name) and target.id == "__version__" for target in node.targets)
+                  and isinstance(node.value, ast.Constant)
+                  and isinstance(node.value.value, str)
+              ):
+                  version_file.write_text(node.value.value + "\n", encoding="utf-8")
+                  break
+          else:
+              raise SystemExit("Could not find Maigret __version__")
+          PY
+
+      - name: Validate upstream database checksum
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          python - <<'PY'
+          import hashlib
+          import json
+          from pathlib import Path
+
+          meta = json.loads(Path("vendor/maigret/resources/db_meta.json").read_text(encoding="utf-8"))
+          data = Path("vendor/maigret/resources/data.json").read_bytes()
+          actual = hashlib.sha256(data).hexdigest()
+          expected = meta["data_sha256"]
+
+          if actual != expected:
+              raise SystemExit(f"SHA-256 mismatch: expected {expected}, got {actual}")
+
+          sites_count = len(json.loads(data)["sites"])
+          if sites_count != meta["sites_count"]:
+              raise SystemExit(f"Site count mismatch: expected {meta['sites_count']}, got {sites_count}")
+
+          print(f"Validated Maigret database: {sites_count} sites")
+          PY
+
+      - name: Detect changes
+        id: changes
+        shell: bash
+        run: |
+          if git diff --quiet -- vendor/maigret; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No Maigret upstream changes detected."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            git diff --stat -- vendor/maigret
+          fi
+
+      - name: Commit and push updates
+        if: steps.changes.outputs.changed == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          version="$(tr -d '[:space:]' < vendor/maigret/VERSION)"
+          sites_count="$(python - <<'PY'
+          import json
+          from pathlib import Path
+          print(json.loads(Path("vendor/maigret/resources/db_meta.json").read_text(encoding="utf-8"))["sites_count"])
+          PY
+          )"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add vendor/maigret
+          git commit -m "chore: sync Maigret ${version} data (${sites_count} sites)"
+          git push
+
+      - name: Trigger Docker build
+        if: steps.changes.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: gh workflow run docker-build.yml --ref "$GITHUB_REF_NAME"
