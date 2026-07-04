@@ -64,7 +64,8 @@
             ],
             "errors": {
                 "Login • Instagram": "Login required",
-                "\"routePath\":\"\\/\"": "Login required (rate-limited or session blocked)"
+                "\"routePath\":\"\\/\"": "Login required (rate-limited or session blocked)",
+                "Please wait a few minutes before you try again.": "Rate limited"
             },
             "alexaRank": 4,
             "urlMain": "https://www.instagram.com/",
@@ -259,13 +260,10 @@
             "checkType": "message",
             "alexaRank": 18,
             "presenseStrs": [
-                "<!-- --> followers",
-                "<!-- --> following",
-                "<!-- --> подписчиков",
-                "<!-- --> подписок"
+                "\"@type\":\"ProfilePage\""
             ],
             "absenceStrs": [
-                "@undefined"
+                "User not found."
             ],
             "urlMain": "https://www.pinterest.com/",
             "url": "https://www.pinterest.com/{username}/",
@@ -524,6 +522,21 @@
                 " title="
             ]
         },
+        "Tuchong": {
+            "tags": [
+                "cn",
+                "photo"
+            ],
+            "regexCheck": "^[a-zA-Z0-9]+$",
+            "checkType": "message",
+            "urlMain": "https://tuchong.com/",
+            "url": "https://{username}.tuchong.com/",
+            "usernameClaimed": "foto",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "presenseStrs": [
+                "- 图博 - 图虫"
+            ]
+        },
         "Spotify": {
             "tags": [
                 "music"
@@ -604,16 +617,12 @@
             "usernameUnclaimed": "noonewouldeverusethis7"
         },
         "Baidu": {
-            "disabled": true,
-            "absenceStrs": [
-                "error_404_iframe"
-            ],
             "presenseStrs": [
-                "user_name"
+                "\"raw_name\""
             ],
-            "url": "https://tieba.baidu.com/home/main?un={username}",
+            "url": "https://tieba.baidu.com/i/sys/user_json?un={username}&ie=utf-8",
             "urlMain": "https://tieba.baidu.com",
-            "usernameClaimed": "reneecong",
+            "usernameClaimed": "maigret",
             "usernameUnclaimed": "noonewouldeverusethis7",
             "checkType": "message",
             "tags": [
@@ -787,13 +796,15 @@
             ]
         },
         "Issuu": {
-            "urlProbe": "https://issuu.com/query?format=json&_=3210224608766&profileUsername={username}&action=issuu.user.get_anonymous",
             "checkType": "message",
+            "headers": {
+                "RSC": "1"
+            },
             "presenseStrs": [
-                "displayName"
+                "\"displayName\":\""
             ],
             "absenceStrs": [
-                "No such user"
+                "NEXT_HTTP_ERROR_FALLBACK;404"
             ],
             "alexaRank": 110,
             "urlMain": "https://issuu.com/",
@@ -806,25 +817,15 @@
         },
         "Weibo": {
             "absenceStrs": [
-                "<h2>400 Bad Request</h2>"
+                "该昵称当前没有人使用"
             ],
             "presenseStrs": [
                 "{\"ok\":1,\"data\":{\"user\":"
             ],
             "headers": {
                 "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:133.0) Gecko/20100101 Firefox/133.0",
-                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-                "Accept-Language": "en-US,en;q=0.5",
-                "Upgrade-Insecure-Requests": "1",
-                "Sec-Fetch-Dest": "document",
-                "Sec-Fetch-Mode": "navigate",
-                "Sec-Fetch-Site": "cross-site",
-                "Priority": "u=0, i",
-                "Pragma": "no-cache",
-                "Cache-Control": "no-cache",
-                "Accept-Encoding": "gzip, deflate, br, zstd",
-                "TE": "trailers",
-                "Cookie": "SUB=_2AkMQDkYqf8NxqwFRmf4QzWnqbop-wwHEieKmUrfxJRMxHRl-yT9kqm4gtRB6O45oxc8K9O2Jsarg5zYMmQy3bR_LfISF; expires=Saturday, 06-Dec-2025 09:51:25 GMT; path=/; domain=.weibo.com; secure; httponly; SameSite=None, SUBP=0033WrSXqPxfM72-Ws9jqgMF55529P9D9Whze9rurqv2pUdg7sY.DTbO; expires=Saturday, 06-Dec-2025 09:51:25 GMT; path=/; domain=.weibo.com, SRT=D.QqHBTrsMMFkSVdRtOeYoWrSNUdRr4Q9QUeE8U3vkW3WzMdbbN-sPVcStNbHi5mYNUCsuPDbhVdrrS3MNAZSLiDP65FJtNqbLJ%219qRQHeiQ9SOdsM5Oi84byJS%21bOMX77%2AB.vAflW-P9Rc0lR-ykKDvnJqiQVbiRVPBtS%21r3J8sQVqbgVdWiMZ4siOzu4DbmKPWf5c4uVePpVQRpVEP%21SqWqdNumPFHL; expires=Mon, 04-Dec-2034 09:51:25 GMT; Max-Age=315360000; path=/; domain=.passport.weibo.com; secure; HttpOnly, SRF=1733478685; expires=Mon, 04-Dec-2034 09:51:25 GMT; Max-Age=315360000; path=/; domain=.passport.weibo.com; secure"
+                "Referer": "https://weibo.com/",
+                "Cookie": "SUB=_2AkMdFa01f8NxqwJRmvwUz2LjaYp1ww7EieKrSVzuJRMxHRl-yT9yqlUStRB6NpWD2jyzKNEl0uw_vEsS3DHafDm4ESQm; SUBP=0033WrSXqPxfM72-Ws9jqgMF55529P9D9Wh7pke.1CZOWMKGvI63-vT2"
             },
             "activation": {
                 "method": "weibo",
@@ -834,8 +835,8 @@
                 ],
                 "url": "https://passport.weibo.com/visitor/genvisitor2"
             },
-            "urlProbe": "https://weibo.com/ajax/profile/info?custom={username}",
-            "url": "https://weibo.com/{username}",
+            "urlProbe": "https://weibo.com/ajax/profile/info?screen_name={username}",
+            "url": "https://weibo.com/n/{username}",
             "urlMain": "https://weibo.com",
             "usernameClaimed": "clairekuo",
             "usernameUnclaimed": "noonewouldeverusethis7",
@@ -1291,6 +1292,7 @@
                 "news",
                 "tech"
             ],
+            "disabled": true,
             "checkType": "response_url",
             "alexaRank": 236,
             "urlMain": "https://www.theverge.com",
@@ -1671,6 +1673,7 @@
             "tags": [
                 "social"
             ],
+            "disabled": true,
             "checkType": "message",
             "presenseStrs": [
                 "first_name",
@@ -1853,13 +1856,21 @@
             "checkType": "message",
             "alexaRank": 398,
             "urlMain": "https://www.zhihu.com/",
-            "url": "https://www.zhihu.com/people/{username}",
+            "url": "https://www.zhihu.com/api/v4/members/{username}",
             "absenceStrs": [
                 "用户不存在"
             ],
-            "usernameClaimed": "blue",
+            "usernameClaimed": "kaifulee",
             "usernameUnclaimed": "noonewouldeverusethis7",
-            "disabled": true
+            "presenseStrs": [
+                "\"url_token\""
+            ],
+            "errors": {
+                "account/unhuman": "Anti-bot challenge"
+            },
+            "protection": [
+                "tls_fingerprint"
+            ]
         },
         "Giphy": {
             "absenceStrs": [
@@ -2516,7 +2527,7 @@
             "alexaRank": 685,
             "urlMain": "https://about.me/",
             "url": "https://about.me/{username}",
-            "usernameClaimed": "blue",
+            "usernameClaimed": "jeff",
             "usernameUnclaimed": "noonewouldeverusethis7"
         },
         "Instructables": {
@@ -2675,10 +2686,11 @@
             ],
             "regexCheck": "^[a-zA-Z0-9-_]{1,30}$",
             "checkType": "status_code",
+            "urlProbe": "https://api.bitbucket.org/2.0/workspaces/{username}",
             "alexaRank": 801,
             "urlMain": "https://bitbucket.org/",
             "url": "https://bitbucket.org/{username}/",
-            "usernameClaimed": "white",
+            "usernameClaimed": "atlassian",
             "usernameUnclaimed": "noonewouldeverusethis7"
         },
         "forums.ea.com": {
@@ -2973,6 +2985,7 @@
                 "in",
                 "social"
             ],
+            "disabled": true,
             "checkType": "message",
             "presenseStrs": [
                 "<meta content=\"name=Profile"
@@ -3118,14 +3131,18 @@
             "usernameUnclaimed": "noonewouldeverusethis7",
             "protection": [
                 "custom_bot_protection"
-            ]
+            ],
+            "disabled": true
         },
         "Smugmug": {
             "tags": [
                 "photo"
             ],
             "regexCheck": "^[^\\.]+$",
-            "checkType": "response_url",
+            "checkType": "status_code",
+            "protection": [
+                "tls_fingerprint"
+            ],
             "alexaRank": 1114,
             "urlMain": "https://smugmug.com/",
             "url": "https://{username}.smugmug.com/",
@@ -3172,16 +3189,16 @@
             "usernameClaimed": "yeahkenny",
             "usernameUnclaimed": "noonewouldeverusethis77777"
         },
-        "Ustream": {
+        "IBM Video": {
             "tags": [
                 "streaming",
                 "video"
             ],
-            "checkType": "response_url",
+            "checkType": "status_code",
             "alexaRank": 1143,
-            "urlMain": "http://www.ustream.tv",
-            "url": "http://www.ustream.tv/channel/adam{username}",
-            "usernameClaimed": "adam",
+            "urlMain": "https://video.ibm.com/",
+            "url": "https://video.ibm.com/{username}",
+            "usernameClaimed": "nasahdtv",
             "usernameUnclaimed": "noonewouldeverusethis7"
         },
         "djskt.lnk.to": {
@@ -3293,6 +3310,85 @@
             "url": "https://gitee.com/{username}",
             "usernameClaimed": "wizzer",
             "usernameUnclaimed": "noonewouldeverusethis7"
+        },
+        "GitCode": {
+            "tags": [
+                "cn",
+                "coding"
+            ],
+            "checkType": "message",
+            "urlMain": "https://gitcode.com/",
+            "url": "https://gitcode.com/{username}",
+            "usernameClaimed": "chatgpt",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "presenseStrs": [
+                "AtomGit | GitCode"
+            ]
+        },
+        "Yuque": {
+            "tags": [
+                "cn",
+                "coding"
+            ],
+            "checkType": "status_code",
+            "urlMain": "https://www.yuque.com/",
+            "url": "https://www.yuque.com/{username}",
+            "usernameClaimed": "yuque",
+            "usernameUnclaimed": "noonewouldeverusethis7"
+        },
+        "LeetCode CN": {
+            "tags": [
+                "cn",
+                "coding"
+            ],
+            "checkType": "message",
+            "urlMain": "https://leetcode.cn/",
+            "url": "https://leetcode.cn/u/{username}/",
+            "usernameClaimed": "leetcode",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "presenseStrs": [
+                "\"userAvatar\""
+            ]
+        },
+        "Bangumi": {
+            "tags": [
+                "cn"
+            ],
+            "checkType": "message",
+            "urlMain": "https://bgm.tv/",
+            "url": "https://bgm.tv/user/{username}",
+            "usernameClaimed": "sai",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "presenseStrs": [
+                "的时光机"
+            ]
+        },
+        "NGA": {
+            "tags": [
+                "cn",
+                "forum"
+            ],
+            "checkType": "message",
+            "urlMain": "https://bbs.nga.cn/",
+            "url": "https://bbs.nga.cn/nuke.php?func=ucp&username={username}",
+            "usernameClaimed": "admin",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "presenseStrs": [
+                "__UCPUSER"
+            ]
+        },
+        "Moegirl": {
+            "tags": [
+                "cn"
+            ],
+            "checkType": "status_code",
+            "urlMain": "https://zh.moegirl.org.cn/",
+            "url": "https://zh.moegirl.org.cn/User:{username}",
+            "usernameClaimed": "零",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "protection": [
+                "tls_fingerprint"
+            ]
         },
         "ImageShack": {
             "tags": [
@@ -3471,6 +3567,7 @@
                 "news",
                 "tech"
             ],
+            "disabled": true,
             "checkType": "status_code",
             "alexaRank": 1355,
             "urlMain": "https://www.techrepublic.com",
@@ -3568,12 +3665,10 @@
             "usernameUnclaimed": "noonewouldeverusethis7"
         },
         "AllRecipes": {
-            "protection": [
-                "ip_reputation"
-            ],
             "tags": [
                 "hobby"
             ],
+            "disabled": true,
             "checkType": "message",
             "absenceStrs": [
                 "Page Not Found.",
@@ -3767,6 +3862,7 @@
             "tags": [
                 "us"
             ],
+            "disabled": true,
             "checkType": "response_url",
             "alexaRank": 1688,
             "urlMain": "https://www.sbnation.com",
@@ -3842,6 +3938,7 @@
                 "gaming",
                 "news"
             ],
+            "disabled": true,
             "checkType": "status_code",
             "alexaRank": 1668,
             "urlMain": "https://www.polygon.com/",
@@ -3869,13 +3966,8 @@
             "tags": [
                 "news"
             ],
-            "checkType": "message",
-            "absenceStrs": [
-                "<title>HackerNoon"
-            ],
-            "presenseStrs": [
-                " | HackerNoon</title>"
-            ],
+            "checkType": "status_code",
+            "urlProbe": "https://us-central1-hackernoon-app.cloudfunctions.net/profilesApi/?handle={username}",
             "urlMain": "https://hackernoon.com",
             "url": "https://hackernoon.com/u/{username}",
             "usernameUnclaimed": "noonewouldeverusethis71",
@@ -3922,7 +4014,10 @@
             "urlMain": "https://pcgamer.com",
             "url": "https://forums.pcgamer.com/members/?username={username}",
             "usernameClaimed": "admin",
-            "usernameUnclaimed": "noonewouldeverusethis7"
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "protection": [
+                "tls_fingerprint"
+            ]
         },
         "Ubisoft": {
             "disabled": true,
@@ -4083,6 +4178,12 @@
             ],
             "headers": {
                 "Cookie": "verified=1"
+            },
+            "activation": {
+                "method": "wikimapia",
+                "marks": [
+                    "document.cookie=\"ngxsession="
+                ]
             },
             "alexaRank": 1911,
             "urlMain": "http://wikimapia.org",
@@ -5467,7 +5568,7 @@
             "engine": "Discourse",
             "alexaRank": 1927,
             "urlMain": "https://www.freecodecamp.org/forum/",
-            "usernameClaimed": "red",
+            "usernameClaimed": "JeremyLT",
             "usernameUnclaimed": "noonewouldeverusethis7"
         },
         "Letterboxd": {
@@ -5688,7 +5789,7 @@
             ],
             "engine": "engine404",
             "urlMain": "https://jsfiddle.net",
-            "url": "https://jsfiddle.net/user/{username}/",
+            "url": "https://jsfiddle.net/u/{username}/",
             "usernameUnclaimed": "noonewouldeverusethis7",
             "usernameClaimed": "john",
             "alexaRank": 2472
@@ -5831,18 +5932,7 @@
                 "gaming",
                 "news"
             ],
-            "checkType": "message",
-            "presenseStrs": [
-                "Email",
-                " MAIL",
-                " ",
-                "className:",
-                " first"
-            ],
-            "absenceStrs": [
-                "noindex",
-                " search__form"
-            ],
+            "checkType": "status_code",
             "url": "https://www.gamesradar.com/uk/author/{username}/",
             "urlMain": "https://www.gamesradar.com",
             "usernameClaimed": "jordan-gerblick",
@@ -5880,7 +5970,7 @@
             "alexaRank": 2621,
             "urlMain": "https://coub.com/",
             "url": "https://coub.com/{username}",
-            "usernameClaimed": "meteoralp",
+            "usernameClaimed": "bestcoubs",
             "usernameUnclaimed": "noonewouldeverusethis7"
         },
         "Metacafe": {
@@ -18138,7 +18228,10 @@
             "urlMain": "https://www.snbforums.com",
             "url": "https://www.snbforums.com/members/?username={username}",
             "usernameClaimed": "adam",
-            "usernameUnclaimed": "noonewouldeverusethis777"
+            "usernameUnclaimed": "noonewouldeverusethis777",
+            "protection": [
+                "tls_fingerprint"
+            ]
         },
         "WiredNewYork": {
             "urlSubpath": "/forum",
@@ -21276,7 +21369,10 @@
             "urlMain": "https://www.realmeye.com/",
             "url": "https://www.realmeye.com/player/{username}",
             "usernameClaimed": "blue",
-            "usernameUnclaimed": "noonewouldeverusethis7"
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "protection": [
+                "cf_js_challenge"
+            ]
         },
         "Realmeye-graveyard": {
             "absenceStrs": [
@@ -23208,7 +23304,6 @@
         "Nhl": {
             "tags": [
                 "by",
-                "cn",
                 "ru"
             ],
             "checkType": "message",
@@ -24060,6 +24155,9 @@
             "usernameUnclaimed": "noonewouldeverusethis7",
             "tags": [
                 "forum"
+            ],
+            "protection": [
+                "tls_fingerprint"
             ]
         },
         "50cc.com.ua": {
@@ -33317,6 +33415,9 @@
             "url": "https://club.myce.com/u/{username}"
         },
         "cnblogs.com": {
+            "tags": [
+                "cn"
+            ],
             "checkType": "status_code",
             "usernameClaimed": "adam",
             "usernameUnclaimed": "noonewouldeverusethis7",
@@ -34304,6 +34405,9 @@
             "url": "https://users.rust-lang.org/u/{username}"
         },
         "v2ex.com": {
+            "tags": [
+                "cn"
+            ],
             "checkType": "status_code",
             "usernameClaimed": "adam",
             "usernameUnclaimed": "noonewouldeverusethis7",
