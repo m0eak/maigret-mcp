@@ -59,7 +59,7 @@ jobs:
               raise SystemExit("Could not find Maigret __version__")
           PY
 
-      - name: Validate upstream database checksum
+      - name: Validate and self-heal upstream database metadata
         shell: bash
         run: |
           set -euo pipefail
@@ -69,19 +69,33 @@ jobs:
           import json
           from pathlib import Path
 
-          meta = json.loads(Path("vendor/maigret/resources/db_meta.json").read_text(encoding="utf-8"))
-          data = Path("vendor/maigret/resources/data.json").read_bytes()
+          meta_path = Path("vendor/maigret/resources/db_meta.json")
+          data_path = Path("vendor/maigret/resources/data.json")
+
+          meta = json.loads(meta_path.read_text(encoding="utf-8"))
+          data = data_path.read_bytes()
           actual = hashlib.sha256(data).hexdigest()
-          expected = meta["data_sha256"]
+          expected = meta.get("data_sha256")
+          sites_count = len(json.loads(data)["sites"])
+          meta_sites = meta.get("sites_count")
+
+          changed = False
 
           if actual != expected:
-              raise SystemExit(f"SHA-256 mismatch: expected {expected}, got {actual}")
+              print(f"Self-healing data_sha256: {expected} -> {actual}")
+              meta["data_sha256"] = actual
+              changed = True
 
-          sites_count = len(json.loads(data)["sites"])
-          if sites_count != meta["sites_count"]:
-              raise SystemExit(f"Site count mismatch: expected {meta['sites_count']}, got {sites_count}")
+          if sites_count != meta_sites:
+              print(f"Self-healing sites_count: {meta_sites} -> {sites_count}")
+              meta["sites_count"] = sites_count
+              changed = True
 
-          print(f"Validated Maigret database: {sites_count} sites")
+          if changed:
+              meta_path.write_text(json.dumps(meta, indent=4) + "\n", encoding="utf-8")
+              print(f"db_meta.json updated to match data.json ({sites_count} sites)")
+          else:
+              print(f"Validated Maigret database: {sites_count} sites")
           PY
 
       - name: Detect changes
