@@ -1,5 +1,34 @@
 {
     "sites": {
+        "Codédex": {
+            "url": "https://www.codedex.io/@{username}",
+            "urlMain": "https://www.codedex.io",
+            "usernameClaimed": "loc210z",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "checkType": "status_code",
+            "tags": [
+                "coding"
+            ]
+        },
+        "Coddy": {
+            "absenceStrs": [
+                "404 - Page not found"
+            ],
+            "presenseStrs": [
+                "displayName",
+                "og:title",
+                "Private",
+                "twitter:title"
+            ],
+            "url": "https://coddy.tech/user/{username}",
+            "urlMain": "https://coddy.tech",
+            "usernameClaimed": "loc210z",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "checkType": "message",
+            "tags": [
+                "coding"
+            ]
+        },
         "Juejin": {
             "tags": [
                 "cn",
@@ -9246,6 +9275,7 @@
             "usernameUnclaimed": "noonewouldeverusethis7"
         },
         "adblockplus.org": {
+            "disabled": true,
             "tags": [
                 "apps",
                 "social",
@@ -13391,13 +13421,7 @@
                 "reading",
                 "ru"
             ],
-            "checkType": "message",
-            "presenseStrs": [
-                "на livelib.ru"
-            ],
-            "absenceStrs": [
-                "не найден"
-            ],
+            "checkType": "status_code",
             "alexaRank": 11407,
             "urlMain": "https://www.livelib.ru/",
             "url": "https://www.livelib.ru/reader/{username}",
@@ -14496,6 +14520,7 @@
             ]
         },
         "DLive": {
+            "disabled": true,
             "absenceStrs": [
                 "Channel not found"
             ],
@@ -14516,6 +14541,7 @@
             ]
         },
         "Nkj": {
+            "disabled": true,
             "tags": [
                 "ru",
                 "science"
@@ -14886,6 +14912,7 @@
             ]
         },
         "Repl.it": {
+            "disabled": true,
             "tags": [
                 "apps",
                 "coding",
@@ -15166,6 +15193,7 @@
             "usernameUnclaimed": "noonewouldeverusethis7"
         },
         "Funnyjunk": {
+            "disabled": true,
             "tags": [
                 "anime",
                 "forum",
@@ -15591,17 +15619,11 @@
             "usernameUnclaimed": "noonewouldeverusethis7"
         },
         "mel.fm": {
-            "absenceStrs": [
-                "l-page-404__text-not-found"
-            ],
-            "presenseStrs": [
-                "Введите e-mail"
-            ],
             "url": "https://mel.fm/blog/{username}",
             "urlMain": "https://mel.fm",
-            "usernameClaimed": "ivan-ivanov30",
+            "usernameClaimed": "sos-detskie-derevni",
             "usernameUnclaimed": "noonewouldeverusethis7",
-            "checkType": "message",
+            "checkType": "status_code",
             "alexaRank": 26031,
             "tags": [
                 "ru"
@@ -15663,6 +15685,7 @@
             ]
         },
         "Fatsecret": {
+            "disabled": true,
             "tags": [
                 "au"
             ],
@@ -16252,6 +16275,7 @@
             ]
         },
         "dumskaya.net": {
+            "disabled": true,
             "absenceStrs": [
                 "><img  class=nobo  src=/banner/ps2_/ alt="
             ],
@@ -16770,6 +16794,10 @@
             "usernameUnclaimed": "noonewouldeverusethis"
         },
         "ViewBug": {
+            "disabled": true,
+            "protection": [
+                "aws_waf_js_challenge"
+            ],
             "absenceStrs": [
                 "missing-photos"
             ],
@@ -17069,23 +17097,6 @@
             "usernameClaimed": "adam",
             "usernameUnclaimed": "noonewouldeverusethis7"
         },
-        "thoughts.com": {
-            "tags": [
-                "blog"
-            ],
-            "checkType": "message",
-            "absenceStrs": [
-                "<title>Page not found"
-            ],
-            "presenseStrs": [
-                "user-activity"
-            ],
-            "urlMain": "http://thoughts.com",
-            "url": "http://thoughts.com/members/{username}",
-            "usernameUnclaimed": "noonewouldeverusethis7",
-            "usernameClaimed": "jules60",
-            "alexaRank": 48335
-        },
         "profi.ru": {
             "absenceStrs": [
                 "page-404__paragraph"
@@ -17203,6 +17214,7 @@
             "alexaRank": 48831
         },
         "Gapyear": {
+            "disabled": true,
             "tags": [
                 "gb",
                 "travel"
@@ -17480,6 +17492,7 @@
             "usernameUnclaimed": "noonewouldeverusethis7"
         },
         "Golbis": {
+            "disabled": true,
             "tags": [
                 "news",
                 "ru"
@@ -17970,6 +17983,7 @@
             ]
         },
         "Zoomir.ir": {
+            "disabled": true,
             "absenceStrs": [
                 "txtSearch"
             ],
@@ -19737,6 +19751,7 @@
             ]
         },
         "HackTheBox": {
+            "disabled": true,
             "tags": [
                 "education",
                 "hacking"
@@ -25225,7 +25240,8 @@
             "alexaRank": 612390,
             "urlMain": "http://www.forumjizni.ru",
             "usernameClaimed": "luhoy2",
-            "usernameUnclaimed": "noonewouldeverusethis7"
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "disabled": true
         },
         "Nekto": {
             "tags": [
@@ -39097,14 +39113,11 @@
             ]
         },
         "tikbuddy.com": {
-            "presenseStrs": [
-                "nickName"
-            ],
             "url": "https://tikbuddy.com/en/tiktok/{username}",
             "urlMain": "https://tikbuddy.com",
-            "usernameClaimed": "sergey.ivanov29",
+            "usernameClaimed": "charlidamelio",
             "usernameUnclaimed": "noonewouldeverusethis9",
-            "checkType": "message",
+            "checkType": "status_code",
             "source": "TikTok",
             "tags": [
                 "business",
@@ -44407,6 +44420,181 @@
             "usernameClaimed": "z3dev",
             "usernameUnclaimed": "noonewouldeverusethis7",
             "url": "https://openjscad.nodebb.com/user/{username}",
+            "checkType": "status_code"
+        },
+        "ellinikos-stratos.com": {
+            "tags": [
+                "discussion",
+                "forum",
+                "gr",
+                "military"
+            ],
+            "urlMain": "https://ellinikos-stratos.com",
+            "usernameClaimed": "Togo2",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "url": "https://www.ellinikos-stratos.com/phpBB3/memberlist.php?mode=viewprofile&un={username}",
+            "checkType": "status_code"
+        },
+        "hlmod.hu": {
+            "tags": [
+                "discussion",
+                "forum",
+                "gaming",
+                "hu"
+            ],
+            "urlMain": "https://hlmod.hu",
+            "usernameClaimed": "kiki",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "url": "https://hlmod.hu/memberlist.php?mode=viewprofile&un={username}",
+            "checkType": "status_code"
+        },
+        "nasser-alyamani.org": {
+            "tags": [
+                "discussion",
+                "forum",
+                "religion"
+            ],
+            "urlMain": "https://nasser-alyamani.org",
+            "usernameClaimed": "الصقرالوكري",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "url": "https://nasser-alyamani.org/member.php?username={username}",
+            "checkType": "message",
+            "presenseStrs": [
+                "class=\"username\"",
+                "class=\"blocksubhead subsectionhead userprof_headers userprof_headers_border\""
+            ]
+        },
+        "palungjit.org": {
+            "tags": [
+                "discussion",
+                "forum",
+                "religion",
+                "th"
+            ],
+            "urlMain": "https://palungjit.org",
+            "usernameClaimed": "iamfu",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "engine": "XenForo"
+        },
+        "foropuros.com": {
+            "tags": [
+                "discussion",
+                "es",
+                "forum",
+                "hobby"
+            ],
+            "urlMain": "https://foropuros.com",
+            "usernameClaimed": "sergei",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "engine": "XenForo"
+        },
+        "foxes.day": {
+            "tags": [
+                "networking",
+                "social"
+            ],
+            "urlMain": "https://foxes.day",
+            "usernameClaimed": "ddhant",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "url": "https://foxes.day/@{username}",
+            "checkType": "message",
+            "presenseStrs": [
+                "\"username\":"
+            ]
+        },
+        "f2.freeivr.co.il": {
+            "tags": [
+                "discussion",
+                "forum",
+                "il",
+                "tech"
+            ],
+            "urlMain": "https://f2.freeivr.co.il",
+            "usernameClaimed": "cubase",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "url": "https://f2.freeivr.co.il/user/{username}",
+            "checkType": "status_code"
+        },
+        "forum.antichat.io": {
+            "tags": [
+                "discussion",
+                "forum",
+                "hacking",
+                "ru"
+            ],
+            "urlMain": "https://forum.antichat.io",
+            "usernameClaimed": "___Roman___",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "engine": "vBulletin"
+        },
+        "forum.exbo.net": {
+            "tags": [
+                "discussion",
+                "forum",
+                "gaming"
+            ],
+            "urlMain": "https://forum.exbo.net",
+            "usernameClaimed": "zubzalinaza",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "engine": "Flarum"
+        },
+        "forum.vsmuta.com": {
+            "tags": [
+                "discussion",
+                "forum",
+                "gaming",
+                "ru"
+            ],
+            "urlMain": "https://forum.vsmuta.com",
+            "usernameClaimed": "angel13",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "engine": "XenForo"
+        },
+        "git.factory.uga.edu": {
+            "tags": [
+                "coding",
+                "education",
+                "us"
+            ],
+            "urlMain": "https://git.factory.uga.edu",
+            "usernameClaimed": "Amanda-Marie-Snyder",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "url": "https://git.factory.uga.edu/{username}",
+            "checkType": "status_code"
+        },
+        "sahara.irt-saintexupery.com": {
+            "tags": [
+                "coding",
+                "fr",
+                "research"
+            ],
+            "urlMain": "https://sahara.irt-saintexupery.com",
+            "usernameClaimed": "BOUTEGRABET",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "url": "https://sahara.irt-saintexupery.com/{username}",
+            "checkType": "status_code"
+        },
+        "srcsrv.wikimedia.de": {
+            "tags": [
+                "coding",
+                "de"
+            ],
+            "urlMain": "https://srcsrv.wikimedia.de",
+            "usernameClaimed": "FG-Rechnungen",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "url": "https://srcsrv.wikimedia.de/{username}",
+            "checkType": "status_code"
+        },
+        "surak.baribar.kz": {
+            "tags": [
+                "discussion",
+                "kz",
+                "q&a"
+            ],
+            "urlMain": "https://surak.baribar.kz",
+            "usernameClaimed": "Злой",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "url": "https://surak.baribar.kz/user/{username}",
             "checkType": "status_code"
         }
     },
