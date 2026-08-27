@@ -5,7 +5,7 @@ from __future__ import annotations
 import os
 from typing import Literal
 
-from mcp.server.fastmcp import FastMCP
+from mcp.server.mcpserver import MCPServer
 
 from .runner import default_reports_dir, list_report_files, run_maigret, run_stats
 
@@ -19,14 +19,12 @@ def env_bool(name: str, default: bool) -> bool:
     return value.strip().lower() in {"1", "true", "yes", "on"}
 
 
-mcp = FastMCP(
-    "maigret-mcp",
-    host=os.environ.get("MCP_HOST", "0.0.0.0"),
-    port=int(os.environ.get("MCP_PORT", "8000")),
-    streamable_http_path=os.environ.get("MCP_PATH", "/mcp"),
-    stateless_http=env_bool("MCP_STATELESS_HTTP", True),
-    json_response=env_bool("MCP_JSON_RESPONSE", True),
-)
+# mcp 2.x: FastMCP renamed to MCPServer; host/port/streamable_http_path/
+# stateless_http/json_response moved from the constructor to mcp.run(transport=...).
+# MCP_* env vars are no longer auto-read; we keep the same env-var contract
+# (MCP_HOST/MCP_PORT/MCP_PATH/MCP_STATELESS_HTTP/MCP_JSON_RESPONSE) and pass
+# the resolved values into run() ourselves.
+mcp = MCPServer("maigret-mcp")
 
 
 @mcp.tool()
@@ -135,7 +133,14 @@ def list_reports() -> dict:
 
 
 def main() -> None:
-    mcp.run(transport="streamable-http")
+    mcp.run(
+        transport="streamable-http",
+        host=os.environ.get("MCP_HOST", "0.0.0.0"),
+        port=int(os.environ.get("MCP_PORT", "8000")),
+        streamable_http_path=os.environ.get("MCP_PATH", "/mcp"),
+        stateless_http=env_bool("MCP_STATELESS_HTTP", True),
+        json_response=env_bool("MCP_JSON_RESPONSE", True),
+    )
 
 
 if __name__ == "__main__":
