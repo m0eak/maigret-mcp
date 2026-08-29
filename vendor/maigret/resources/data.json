@@ -5,7 +5,10 @@
             "urlMain": "https://www.codedex.io",
             "usernameClaimed": "loc210z",
             "usernameUnclaimed": "noonewouldeverusethis7",
-            "checkType": "status_code",
+            "checkType": "message",
+            "presenseStrs": [
+                ") | Codédex\""
+            ],
             "tags": [
                 "coding"
             ]
@@ -12644,6 +12647,7 @@
             "usernameUnclaimed": "noonewouldeverusethis7"
         },
         "Championat": {
+            "disabled": true,
             "tags": [
                 "ru",
                 "sport"
@@ -15318,14 +15322,15 @@
             "usernameClaimed": "anonismus",
             "usernameUnclaimed": "noneownsthisusername"
         },
-        "forum.heroesworld.ru": {
+        "heroesworld.ru": {
             "tags": [
                 "forum",
                 "ru"
             ],
-            "engine": "vBulletin",
-            "urlMain": "https://forum.heroesworld.ru",
-            "usernameClaimed": "alex",
+            "checkType": "status_code",
+            "urlMain": "https://heroesworld.ru",
+            "url": "https://heroesworld.ru/user/{username}/",
+            "usernameClaimed": "hwkeeper",
             "usernameUnclaimed": "noonewouldeverusethis7"
         },
         "Terraria Forums": {
@@ -42619,6 +42624,9 @@
                 "gaming"
             ],
             "engine": "op.gg",
+            "presenseStrs": [
+                "href=\"/lol/summoners/br/"
+            ],
             "url": "https://op.gg/lol/summoners/search?q={username}&region=br",
             "usernameClaimed": "Blaze51",
             "usernameUnclaimed": "noonewouldeverusethis7"
@@ -42629,6 +42637,9 @@
                 "us"
             ],
             "engine": "op.gg",
+            "presenseStrs": [
+                "href=\"/lol/summoners/na/"
+            ],
             "url": "https://op.gg/lol/summoners/search?q={username}&region=na",
             "usernameClaimed": "Blaze51",
             "usernameUnclaimed": "noonewouldeverusethis7"
@@ -42638,6 +42649,9 @@
                 "gaming"
             ],
             "engine": "op.gg",
+            "presenseStrs": [
+                "href=\"/lol/summoners/me/"
+            ],
             "url": "https://op.gg/lol/summoners/search?q={username}&region=me",
             "usernameClaimed": "adam",
             "usernameUnclaimed": "noonewouldeverusethis7"
@@ -42648,6 +42662,9 @@
                 "se"
             ],
             "engine": "op.gg",
+            "presenseStrs": [
+                "href=\"/lol/summoners/eune/"
+            ],
             "url": "https://op.gg/lol/summoners/search?q={username}&region=eune",
             "usernameClaimed": "Blaze51",
             "usernameUnclaimed": "noonewouldeverusethis7"
@@ -42657,6 +42674,9 @@
                 "gaming"
             ],
             "engine": "op.gg",
+            "presenseStrs": [
+                "href=\"/lol/summoners/euw/"
+            ],
             "url": "https://op.gg/lol/summoners/search?q={username}&region=euw",
             "usernameClaimed": "Blaze51",
             "usernameUnclaimed": "noonewouldeverusethis7"
@@ -42667,6 +42687,9 @@
                 "gaming"
             ],
             "engine": "op.gg",
+            "presenseStrs": [
+                "href=\"/lol/summoners/oce/"
+            ],
             "url": "https://op.gg/lol/summoners/search?q={username}&region=oce",
             "usernameClaimed": "adam",
             "usernameUnclaimed": "noonewouldeverusethis7"
@@ -42677,6 +42700,9 @@
                 "kr"
             ],
             "engine": "op.gg",
+            "presenseStrs": [
+                "href=\"/lol/summoners/kr/"
+            ],
             "url": "https://op.gg/lol/summoners/search?q={username}&region=kr",
             "usernameClaimed": "adam",
             "usernameUnclaimed": "noonewouldeverusethis7"
@@ -42687,6 +42713,9 @@
                 "jp"
             ],
             "engine": "op.gg",
+            "presenseStrs": [
+                "href=\"/lol/summoners/jp/"
+            ],
             "url": "https://op.gg/lol/summoners/search?q={username}&region=jp",
             "usernameClaimed": "adam",
             "usernameUnclaimed": "noonewouldeverusethis7"
@@ -42697,6 +42726,9 @@
                 "gaming"
             ],
             "engine": "op.gg",
+            "presenseStrs": [
+                "href=\"/lol/summoners/las/"
+            ],
             "url": "https://op.gg/lol/summoners/search?q={username}&region=las",
             "usernameClaimed": "adam",
             "usernameUnclaimed": "noonewouldeverusethis7"
@@ -42707,6 +42739,9 @@
                 "mx"
             ],
             "engine": "op.gg",
+            "presenseStrs": [
+                "href=\"/lol/summoners/lan/"
+            ],
             "url": "https://op.gg/lol/summoners/search?q={username}&region=lan",
             "usernameClaimed": "adam",
             "usernameUnclaimed": "noonewouldeverusethis7"
@@ -42717,6 +42752,9 @@
                 "ru"
             ],
             "engine": "op.gg",
+            "presenseStrs": [
+                "href=\"/lol/summoners/ru/"
+            ],
             "url": "https://op.gg/lol/summoners/search?q={username}&region=ru",
             "usernameClaimed": "adam",
             "usernameUnclaimed": "noonewouldeverusethis7"
@@ -42727,6 +42765,9 @@
                 "tr"
             ],
             "engine": "op.gg",
+            "presenseStrs": [
+                "href=\"/lol/summoners/tr/"
+            ],
             "url": "https://op.gg/lol/summoners/search?q={username}&region=tr",
             "usernameClaimed": "adam",
             "usernameUnclaimed": "noonewouldeverusethis7"
@@ -42737,6 +42778,9 @@
                 "sg"
             ],
             "engine": "op.gg",
+            "presenseStrs": [
+                "href=\"/lol/summoners/sg/"
+            ],
             "url": "https://op.gg/lol/summoners/search?q={username}&region=sg",
             "usernameClaimed": "adam",
             "usernameUnclaimed": "noonewouldeverusethis7"
@@ -42747,6 +42791,9 @@
                 "ph"
             ],
             "engine": "op.gg",
+            "presenseStrs": [
+                "href=\"/lol/summoners/ph/"
+            ],
             "url": "https://op.gg/lol/summoners/search?q={username}&region=ph",
             "usernameClaimed": "adam",
             "usernameUnclaimed": "noonewouldeverusethis7"
@@ -42757,6 +42804,9 @@
                 "tw"
             ],
             "engine": "op.gg",
+            "presenseStrs": [
+                "href=\"/lol/summoners/tw/"
+            ],
             "url": "https://op.gg/lol/summoners/search?q={username}&region=tw",
             "usernameClaimed": "adam",
             "usernameUnclaimed": "noonewouldeverusethis7"
@@ -42767,6 +42817,9 @@
                 "vn"
             ],
             "engine": "op.gg",
+            "presenseStrs": [
+                "href=\"/lol/summoners/vn/"
+            ],
             "url": "https://op.gg/lol/summoners/search?q={username}&region=vn",
             "usernameClaimed": "adam",
             "usernameUnclaimed": "noonewouldeverusethis7"
@@ -42777,6 +42830,9 @@
                 "th"
             ],
             "engine": "op.gg",
+            "presenseStrs": [
+                "href=\"/lol/summoners/th/"
+            ],
             "url": "https://op.gg/lol/summoners/search?q={username}&region=th",
             "usernameClaimed": "adam",
             "usernameUnclaimed": "noonewouldeverusethis7"
@@ -44636,6 +44692,563 @@
             "usernameUnclaimed": "noonewouldeverusethis7",
             "url": "https://zion.beergeeks.co.il/users/{username}.html",
             "checkType": "status_code"
+        },
+        "chiase.org": {
+            "tags": [
+                "discussion",
+                "forum",
+                "sharing",
+                "vn"
+            ],
+            "urlMain": "https://chiase.org",
+            "usernameClaimed": "nggiabao1612",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "engine": "XenForo"
+        },
+        "forum.church.tools": {
+            "tags": [
+                "apps",
+                "discussion",
+                "forum",
+                "tech"
+            ],
+            "urlMain": "https://forum.church.tools",
+            "usernameClaimed": "jziegeler",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "url": "https://forum.church.tools/user/{username}",
+            "checkType": "status_code"
+        },
+        "forum.kicad.info": {
+            "tags": [
+                "design",
+                "discussion",
+                "forum",
+                "tech"
+            ],
+            "urlMain": "https://forum.kicad.info",
+            "usernameClaimed": "paulvdh",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "engine": "Discourse"
+        },
+        "forum.mohaddis.com": {
+            "tags": [
+                "discussion",
+                "forum",
+                "pk",
+                "religion"
+            ],
+            "urlMain": "https://forum.mohaddis.com",
+            "usernameClaimed": "Aamir",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "engine": "XenForo"
+        },
+        "forum.uit.edu.vn": {
+            "tags": [
+                "discussion",
+                "education",
+                "forum",
+                "vn"
+            ],
+            "urlMain": "https://forum.uit.edu.vn",
+            "usernameClaimed": "toannv",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "engine": "Discourse"
+        },
+        "ibf.lv": {
+            "tags": [
+                "business",
+                "discussion",
+                "forum",
+                "lv"
+            ],
+            "urlMain": "https://ibf.lv",
+            "usernameClaimed": "Dzho",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "engine": "XenForo"
+        },
+        "khatmenbuwat.org": {
+            "tags": [
+                "discussion",
+                "forum",
+                "pk",
+                "religion"
+            ],
+            "urlMain": "https://khatmenbuwat.org",
+            "usernameClaimed": "shaheryar",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "engine": "XenForo"
+        },
+        "phpbbthailand.com": {
+            "tags": [
+                "discussion",
+                "forum",
+                "tech",
+                "th"
+            ],
+            "urlMain": "https://phpbbthailand.com",
+            "usernameClaimed": "intaradogs",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "url": "https://phpbbthailand.com/memberlist.php?mode=viewprofile&un={username}",
+            "checkType": "status_code"
+        },
+        "silkroad4arab.com": {
+            "tags": [
+                "ar",
+                "discussion",
+                "forum",
+                "gaming"
+            ],
+            "urlMain": "https://silkroad4arab.com",
+            "usernameClaimed": "omar34",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "url": "https://www.silkroad4arab.com/vb/member.php?username={username}",
+            "checkType": "message",
+            "presenseStrs": [
+                "class=\"profilefield_category\"",
+                "class=\"list_no_decoration profilefield_list\""
+            ]
+        },
+        "tapuz.co.il": {
+            "tags": [
+                "discussion",
+                "forum",
+                "il"
+            ],
+            "urlMain": "https://tapuz.co.il",
+            "usernameClaimed": "yoni564712",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "url": "https://www.tapuz.co.il/members/?username={username}",
+            "checkType": "message",
+            "presenseStrs": [
+                "memberHeader-content",
+                "הינך נדרש להתחבר כדי לבצע פעולה זו."
+            ],
+            "ignore403": true
+        },
+        "tevu-darzelis.lt": {
+            "tags": [
+                "discussion",
+                "forum",
+                "lt",
+                "parenting"
+            ],
+            "urlMain": "https://tevu-darzelis.lt",
+            "usernameClaimed": "niuni",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "url": "https://www.tevu-darzelis.lt/forumas/profile/{username}",
+            "checkType": "status_code"
+        },
+        "urduweb.org": {
+            "tags": [
+                "discussion",
+                "forum",
+                "pk",
+                "writing"
+            ],
+            "urlMain": "https://urduweb.org",
+            "usernameClaimed": "شمشاد",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "url": "https://www.urduweb.org/mehfil/members/?username={username}",
+            "checkType": "message",
+            "presenseStrs": [
+                "memberHeader-content",
+                "class=\"message-cell message-cell--user\"",
+                "class=\"message-user\""
+            ]
+        },
+        "vozer.net": {
+            "tags": [
+                "discussion",
+                "forum",
+                "tech",
+                "vn"
+            ],
+            "urlMain": "https://vozer.net",
+            "usernameClaimed": "Wall-E",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "engine": "XenForo"
+        },
+        "community.lsst.org": {
+            "tags": [
+                "discussion",
+                "forum",
+                "research",
+                "science"
+            ],
+            "urlMain": "https://community.lsst.org",
+            "usernameClaimed": "timj",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "engine": "Discourse"
+        },
+        "forum.mcmodding.ru": {
+            "tags": [
+                "discussion",
+                "forum",
+                "gaming",
+                "ru"
+            ],
+            "urlMain": "https://forum.mcmodding.ru",
+            "usernameClaimed": "Develance",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "engine": "XenForo"
+        },
+        "forum.onlinesoccermanager.com": {
+            "tags": [
+                "discussion",
+                "forum",
+                "gaming",
+                "sport"
+            ],
+            "urlMain": "https://forum.onlinesoccermanager.com",
+            "usernameClaimed": "star-wars-67",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "url": "https://forum.onlinesoccermanager.com/user/{username}",
+            "checkType": "status_code"
+        },
+        "forum.rocketbeans.tv": {
+            "tags": [
+                "de",
+                "discussion",
+                "forum",
+                "gaming"
+            ],
+            "urlMain": "https://forum.rocketbeans.tv",
+            "usernameClaimed": "Rolly",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "engine": "Discourse"
+        },
+        "forumroman.com": {
+            "tags": [
+                "discussion",
+                "forum",
+                "ir",
+                "writing"
+            ],
+            "urlMain": "https://forumroman.com",
+            "usernameClaimed": "Puyannnn",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "url": "https://forumroman.com/members/?username={username}",
+            "checkType": "message",
+            "presenseStrs": [
+                "memberHeader-content",
+                "برای انجام این کار باید به انجمن ورود کنید"
+            ],
+            "ignore403": true
+        },
+        "forums.overclockers.ru": {
+            "tags": [
+                "discussion",
+                "forum",
+                "ru",
+                "tech"
+            ],
+            "urlMain": "https://forums.overclockers.ru",
+            "usernameClaimed": "Doors4ever",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "url": "https://forums.overclockers.ru/memberlist.php?mode=viewprofile&un={username}",
+            "checkType": "status_code"
+        },
+        "grassrootsmotorsports.com": {
+            "tags": [
+                "auto",
+                "discussion",
+                "forum",
+                "sport"
+            ],
+            "urlMain": "https://grassrootsmotorsports.com",
+            "usernameClaimed": "914Driver",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "url": "https://grassrootsmotorsports.com/members/{username}/",
+            "checkType": "status_code"
+        },
+        "hc-bb-international.com": {
+            "tags": [
+                "de",
+                "discussion",
+                "erotic",
+                "forum",
+                "sharing"
+            ],
+            "urlMain": "https://hc-bb-international.com",
+            "usernameClaimed": "DarkShadow",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "url": "https://hc-bb-international.com/memberlist.php?mode=viewprofile&un={username}",
+            "checkType": "status_code"
+        },
+        "minecraft-server.eu": {
+            "urlSubpath": "/forum",
+            "tags": [
+                "de",
+                "discussion",
+                "forum",
+                "gaming"
+            ],
+            "urlMain": "https://minecraft-server.eu",
+            "usernameClaimed": "Nora",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "engine": "XenForo"
+        },
+        "mmo-dev.info": {
+            "tags": [
+                "discussion",
+                "forum",
+                "gaming",
+                "ru"
+            ],
+            "urlMain": "https://mmo-dev.info",
+            "usernameClaimed": "Minimon",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "engine": "XenForo"
+        },
+        "newf319.com": {
+            "tags": [
+                "discussion",
+                "finance",
+                "forum",
+                "vn"
+            ],
+            "urlMain": "https://newf319.com",
+            "usernameClaimed": "samlayvt96",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "engine": "XenForo"
+        },
+        "openforum.hetclub.org": {
+            "tags": [
+                "auto",
+                "discussion",
+                "forum",
+                "us"
+            ],
+            "urlMain": "https://openforum.hetclub.org",
+            "usernameClaimed": "Bob",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "url": "https://openforum.hetclub.org/profile/{username}",
+            "checkType": "status_code"
+        },
+        "forum.lvivport.com": {
+            "tags": [
+                "discussion",
+                "forum",
+                "news",
+                "ua"
+            ],
+            "urlMain": "https://forum.lvivport.com",
+            "usernameClaimed": "Lanktocha",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "engine": "XenForo"
+        },
+        "forum.onlinesoccermanager.nl": {
+            "tags": [
+                "discussion",
+                "forum",
+                "gaming",
+                "nl",
+                "sport"
+            ],
+            "urlMain": "https://forum.onlinesoccermanager.nl",
+            "usernameClaimed": "star-wars-67",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "url": "https://forum.onlinesoccermanager.nl/user/{username}",
+            "checkType": "status_code"
+        },
+        "fpvua.org": {
+            "tags": [
+                "discussion",
+                "forum",
+                "hobby",
+                "ua"
+            ],
+            "urlMain": "https://fpvua.org",
+            "usernameClaimed": "Magshifter",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "engine": "XenForo"
+        },
+        "immobilio.it": {
+            "tags": [
+                "business",
+                "discussion",
+                "forum",
+                "it"
+            ],
+            "urlMain": "https://immobilio.it",
+            "usernameClaimed": "PyerSilvio",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "engine": "XenForo"
+        },
+        "fanforum.uscho.com": {
+            "tags": [
+                "discussion",
+                "forum",
+                "sport"
+            ],
+            "urlMain": "https://fanforum.uscho.com",
+            "usernameClaimed": "Kepler",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "engine": "XenForo"
+        },
+        "foforum.fr": {
+            "tags": [
+                "discussion",
+                "forum",
+                "fr"
+            ],
+            "urlMain": "https://foforum.fr",
+            "usernameClaimed": "brunette",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "url": "https://foforum.fr/members/?username={username}",
+            "checkType": "message",
+            "presenseStrs": [
+                "memberHeader-content",
+                "Vous devez être connecté pour faire cela."
+            ],
+            "ignore403": true
+        },
+        "forum.gamesource.it": {
+            "tags": [
+                "discussion",
+                "forum",
+                "gaming",
+                "it"
+            ],
+            "urlMain": "https://forum.gamesource.it",
+            "usernameClaimed": "pissio",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "engine": "XenForo"
+        },
+        "forum.lottoced.com": {
+            "tags": [
+                "discussion",
+                "forum",
+                "gambling"
+            ],
+            "urlMain": "https://forum.lottoced.com",
+            "usernameClaimed": "Zac",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "url": "https://forum.lottoced.com/members/?username={username}",
+            "checkType": "message",
+            "presenseStrs": [
+                "memberHeader-content",
+                "Per procedere, devi prima accedere al forum."
+            ],
+            "ignore403": true
+        },
+        "forum.media2.pl": {
+            "tags": [
+                "discussion",
+                "forum",
+                "news",
+                "pl"
+            ],
+            "urlMain": "https://forum.media2.pl",
+            "usernameClaimed": "bartheq",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "url": "https://forum.media2.pl/memberlist.php?mode=viewprofile&un={username}",
+            "checkType": "status_code"
+        },
+        "forum.welcome-suisse.ch": {
+            "tags": [
+                "ch",
+                "discussion",
+                "forum",
+                "travel"
+            ],
+            "urlMain": "https://forum.welcome-suisse.ch",
+            "usernameClaimed": "Alain74",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "engine": "Discourse"
+        },
+        "forums.talkseafishing.co.uk": {
+            "tags": [
+                "discussion",
+                "forum",
+                "gb",
+                "hobby"
+            ],
+            "urlMain": "https://forums.talkseafishing.co.uk",
+            "usernameClaimed": "Trampster",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "engine": "XenForo"
+        },
+        "funny.grizly.club": {
+            "tags": [
+                "photo",
+                "ru"
+            ],
+            "urlMain": "https://funny.grizly.club",
+            "usernameClaimed": "deva",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "url": "https://funny.grizly.club/user/{username}",
+            "checkType": "status_code"
+        },
+        "weblogistics.vn": {
+            "tags": [
+                "business",
+                "discussion",
+                "forum",
+                "vn"
+            ],
+            "urlMain": "https://weblogistics.vn",
+            "usernameClaimed": "nanang",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "engine": "XenForo"
+        },
+        "bbs.aw-ol.com": {
+            "tags": [
+                "cn",
+                "coding",
+                "discussion",
+                "forum"
+            ],
+            "urlMain": "https://bbs.aw-ol.com",
+            "usernameClaimed": "yuzukitsuru",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "url": "https://bbs.aw-ol.com/user/{username}",
+            "checkType": "status_code"
+        },
+        "forum.iinkor.com": {
+            "tags": [
+                "discussion",
+                "forum",
+                "tech"
+            ],
+            "urlMain": "https://forum.iinkor.com",
+            "usernameClaimed": "jassim1",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "engine": "XenForo"
+        },
+        "poker-academie.com": {
+            "tags": [
+                "discussion",
+                "forum",
+                "fr",
+                "gambling"
+            ],
+            "urlMain": "https://poker-academie.com",
+            "usernameClaimed": "Grimaldi44",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "url": "https://www.poker-academie.com/forum/u/{username}/summary",
+            "checkType": "message",
+            "presenseStrs": [
+                "class=\"user-crawler\"",
+                "class='username'"
+            ]
+        },
+        "turkiyeatlas.com": {
+            "tags": [
+                "discussion",
+                "forum",
+                "tr",
+                "travel"
+            ],
+            "urlMain": "https://turkiyeatlas.com",
+            "usernameClaimed": "عناقيد",
+            "usernameUnclaimed": "noonewouldeverusethis7",
+            "url": "https://turkiyeatlas.com/forum/members/?username={username}",
+            "checkType": "message",
+            "presenseStrs": [
+                "class=\"memberHeader-blurb\"",
+                "class=\"has-no-js template-member_view\""
+            ]
         }
     },
     "engines": {
@@ -44655,6 +45268,8 @@
                     "Для того, чтобы это сделать, нужно сначала войти на форум.",
                     "You must be logged-in to do that.",
                     "You must be logged in to do that.",
+                    "הינך נדרש להתחבר כדי לבצע פעולה זו.",
+                    "برای انجام این کار باید به انجمن ورود کنید",
                     "memberHeader-content",
                     "profilePage"
                 ],
@@ -44855,9 +45470,6 @@
             "name": "op.gg",
             "site": {
                 "checkType": "message",
-                "presenseStrs": [
-                    "href=\"/lol/summoners/"
-                ],
                 "absenceStrs": [
                     ">“No search results for"
                 ],
