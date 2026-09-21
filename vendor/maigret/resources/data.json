@@ -4853,6 +4853,7 @@
                 "maps",
                 "ru"
             ],
+            "disabled": true,
             "checkType": "message",
             "presenseStrs": [
                 "<tr class=\"current\">"
@@ -16092,6 +16093,7 @@
                 "gb",
                 "movies"
             ],
+            "disabled": true,
             "checkType": "message",
             "presenseStrs": [
                 "Fan Page - British Comedy Guide"
@@ -23390,6 +23392,7 @@
                 "hobby",
                 "ru"
             ],
+            "disabled": true,
             "checkType": "message",
             "absenceStrs": [
                 "Подходящих тем или сообщений не найдено."
